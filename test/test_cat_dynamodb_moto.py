@@ -49,10 +49,6 @@ class CatDynamoDBMotoTest(unittest.TestCase):
                 {"AttributeName": "partitionKey", "AttributeType": "S"},
             ]
         )
-        for i in range(0, 100000):
-            client.put_item(
-                TableName="TEST_CATS",
-                Item={'partitionKey': {'S': str(uuid.uuid4())}, 'name': {'S': f'Two{i}'}, 'age': {'N': '2'}})
         client.put_item(
             TableName="TEST_CATS",
             Item={'partitionKey': {'S': 'cat02'}, 'name': {'S': 'Pudding'}, 'age': {'N': '2'},
