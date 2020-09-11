@@ -1,6 +1,6 @@
 import unittest
 from decimal import Decimal
-import uuid
+from unittest import skip
 
 import boto3
 from moto import mock_dynamodb2
@@ -58,6 +58,7 @@ class CatDynamoDBMotoTest(unittest.TestCase):
             [{'partitionKey': 'cat02', 'name': 'Pudding', 'age': Decimal(2), 'nicknames': ['Puddy']}],
             cat_dynamodb.read_cat_by_name())
 
+    @skip
     @mock_dynamodb2
     def test_write_tx(self):
         cat_dynamodb.dynamo_resource = None
